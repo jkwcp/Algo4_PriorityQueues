@@ -1,0 +1,11 @@
+1. Priority Queue
+
+    Collections: insert and delete items, which items to delete
+            stack: most recent
+            queue: least recent
+            randomized queue: random item
+            priority queue: remove the largest(or smallest item)
+
+
+
+
