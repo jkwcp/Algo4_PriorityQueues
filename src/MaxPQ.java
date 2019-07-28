@@ -19,7 +19,7 @@
 // Parent of node  k is at k/2
 // Children of node k is 2k or 2k + 1
 
-// Scenario:
+// insert logN, del max: logN
 
 
 
