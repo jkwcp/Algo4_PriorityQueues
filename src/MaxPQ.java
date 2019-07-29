@@ -21,9 +21,13 @@
 
 // insert logN, del max: logN
 
+// Immutability of Keys:
+// Assumption: client does not change keys while they are on the PQ
+// Best practice: use immutable keys
 
-
-
+// Underflow and overflow:
+// Underflow: throw exception if deleting from empty PQ
+// Overflow: add no-arg constructor and use resizing array
 
 
 public class MaxPQ<Key extends Comparable<Key>> {
@@ -51,6 +55,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     // Child's key becomes larger than its parents' key
     // Exchange key in child with key in parent, until heap order restored
     // Peter principle: node promoted to level of incompetence
+    // move up
     private void swim(int k) {
         while (k > 1 && less(k/2, k)) {
             exch(k, k/2);
@@ -70,6 +75,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     // Parent's key becomes smaller than one(or both) of its children's
     // Exchange key in parent with key in larger child, repeat until heap order restored
     // Power struggle: better subordinate promoted
+    // Move down
     private void sink(int k) {
         while (2 * k  < N) {
             int j = 2 * k;
@@ -78,7 +84,6 @@ public class MaxPQ<Key extends Comparable<Key>> {
             if (!less(k, j)) break;
             exch(k, j);
             k = j;
-
         }
     }
 
